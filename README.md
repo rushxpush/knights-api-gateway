@@ -1,30 +1,12 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# Knights Api Gateway
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Porque o Api Gateway não está no monorepo do knights-backend?
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Decidi separar o Api Gateway mais por uma questão didática do que por uma questão de facilidade de uso ou mesmo facilidade de organização. Como esse projeto se trata de uma maneira de desenvolver minhas habilidades lidando com todo tipo de situação não foquei tanto em desenhar uma arquitetura bonitinha desde o começo. A ideia do projeto é justamente me encurralar propositalmente e ver como me viro para resolver problemas de arquitetura, refatoração, versionamento, etc. 
 
-## Description
+Num mundo ideal teriamos sempre um projeto organizadinho e sempre utilizando as boas praticas do desenvolvimento. Mas como sabemos muito bem, no mundo real as coisas acabam acontecendo de maneira muito diferente. Muitas vezes herdamos projetos que só se mantem de pé a base de muito cuspe e palito de dente e temos que nos virar para entregar as features tão desejadas em um prazo curto demais. Não estou reclamando, entendo as necessidades do mercado, e por isso mesmo abracei nesse projeto a ideia de avançar rápido, quebrar coisas, consertar outras tantas e aprender pra caramba.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+É como dizem, é na dor que as lições mais valiosas são aprendidas. Mas isso não quer dizer que estou fazendo o projeto de qualquer jeito. De maneira alguma. A ideia é justamente usar esse projeto para me tornar cada vez mais um desenvolvedor melhor. Por isso esse projeto tem testes unitários, tem documentação e está sempre sendo atualizado para utilizar as melhores práticas de desenvolvimento de software. Mas no final das contas, essa é minha caixinha de areia e nela estou sempre experimentando, utilizando tecnologias novas (ou velhas hehe) e tentando ao máximo estar acompanhando as inovações que aparecem no mercado.
 
 ## Project setup
 
@@ -57,6 +39,17 @@ $ pnpm run test:e2e
 # test coverage
 $ pnpm run test:cov
 ```
+
+## Portas de Microserviços
+
+3000: API Gateway
+3001: Knights Backend
+3002: Auth Service
+5044: Logger Service
+
+## RabbitMQ Queues
+
+auth_queue
 
 ## Deployment
 
