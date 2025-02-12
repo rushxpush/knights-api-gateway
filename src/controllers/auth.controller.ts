@@ -22,7 +22,6 @@ export class AuthController {
   async signIn(@Body() {username, password}: {username: string, password: string}) {
     console.log('1 - api gateway login')
     console.log('this.authServiceToken.status: ', this.authServiceToken.status)
-    // if (this.authServiceToken.status)
     return firstValueFrom(this.authServiceToken.send('get_token', {username, password}));
   }
 }

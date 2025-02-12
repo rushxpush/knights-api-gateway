@@ -1,20 +1,21 @@
 import {
   CanActivate,
   ExecutionContext,
+  Inject,
   Injectable,
   UnauthorizedException,
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { JwtService } from '@nestjs/jwt';
+import { ClientProxy } from '@nestjs/microservices';
 import { Request } from 'express';
-import { AuthService } from 'src/auth/auth.service';
+import { firstValueFrom } from 'rxjs';
 import { IS_PUBLIC_KEY } from 'src/common/decorators/public.decorator';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
   constructor(
     private readonly reflector: Reflector,
-    private readonly authService: AuthService
+    @Inject('AUTH_SERVICE') private readonly authService: ClientProxy
   ) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
@@ -34,7 +35,7 @@ export class AuthGuard implements CanActivate {
     }
 
     try {
-      const payload = await this.authService.verifyToken(token);
+      const payload = await firstValueFrom(this.authService.send('validate_token', { token }));
       console.log('payload: ', payload)
       request['user'] = payload;
       return true;

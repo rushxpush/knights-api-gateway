@@ -2,12 +2,12 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ClientsModule, Transport } from '@nestjs/microservices';
-import { AuthController } from './auth/auth.controller';
+import { AuthController } from './controllers/auth.controller';
 import { APP_GUARD } from '@nestjs/core';
 import { AuthGuard } from './providers/auth.guard';
 import { JwtModule } from '@nestjs/jwt';
 import { ConfigModule } from '@nestjs/config';
-import { AuthService } from './auth/auth.service';
+import { KnightsController } from './controllers/knights.controller';
 
 @Module({
   imports: [
@@ -35,8 +35,8 @@ import { AuthService } from './auth/auth.service';
       }
     ])
   ],
-  controllers: [AppController, AuthController],
-  providers: [AppService, AuthService, {
+  controllers: [AppController, AuthController, KnightsController],
+  providers: [AppService, {
     provide: APP_GUARD,
     useClass: AuthGuard
   }],
